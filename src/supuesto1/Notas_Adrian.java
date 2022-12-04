@@ -1,6 +1,8 @@
 
 package supuesto1;
 
+import recursos.utilidades.Utilidades;
+
 /**
  * SUPUESTO 1: IF ELSE Y EXCEPCIONES
  * Realizar una clase llamada Notas_Nombre (Nombre es vuestro nombre), que 
@@ -10,17 +12,24 @@ package supuesto1;
  * @author Adrián Arjona
  * @version 1.0 Diciembre 2022
  */
-public class Notas_Adrian {
+public class Notas_Adrian{
    
     /* Francisco Adrián Arjona Bravo
         UNIDAD 4: uso de estructuras de control.
     */
     
+    // DECLARACIÓN DE VARIABLES
+    
     static float nota ;
     static String nombre ;
+    
+    public enum Notas {Suspenso, Aprobado, Bien, Notable, Sobresaliente, Matrícula} ;
     
     public static void main(String[] args) {
         
         System.out.println("Bievenido/a al calificador.\n");
+        
+        int numero = Utilidades.leerEntero("Introduce un entero: ") ;
+        System.out.println("El número es: " + numero);
     }
 }

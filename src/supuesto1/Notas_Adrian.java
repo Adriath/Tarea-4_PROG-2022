@@ -26,8 +26,22 @@ public class Notas_Adrian{
     
     public enum Notas {Suspenso, Aprobado, Bien, Notable, Sobresaliente, Matrícula} ;
     
+    public static String compruebaNota (int n){
+        
+        String nota = "" ;
+        Notas num ;
+        
+        if (n > 5) {
+            nota = Notas.Aprobado.name() ;
+        }
+        return nota ;
+    }
+    
     public static void main(String[] args) {
         
         System.out.println("Bievenido/a al calificador.\n");
+        
+        System.out.println("El resultado es: " + compruebaNota(6));
     }
+    
 }

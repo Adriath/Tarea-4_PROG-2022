@@ -1,6 +1,7 @@
 
 package supuesto1;
 
+import java.lang.ref.SoftReference;
 import recursos.utilidades.Utilidades;
 
 /**
@@ -28,8 +29,5 @@ public class Notas_Adrian{
     public static void main(String[] args) {
         
         System.out.println("Bievenido/a al calificador.\n");
-        
-        int numero = Utilidades.leerEntero("Introduce un entero: ") ;
-        System.out.println("El número es: " + numero);
     }
 }

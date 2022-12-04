@@ -44,7 +44,7 @@ public class Utilidades {
      * mensaje de petición.
      * 
      * @param msg String. Mensaje con el que se pide el número al usuario.
-     * @return int entero. Devulevela el número introducido por el usuario.
+     * @return int entero. Devuelve el número introducido por el usuario.
      */
     public static int leerEntero(String msg){
         
@@ -73,5 +73,41 @@ public class Utilidades {
      
         return entero ;
     }
+    
+     /**
+     * Método que pide al usuario un número real pudiendo personalizar el 
+     * mensaje de petición.
+     * 
+     * @param msg String. Mensaje con el que se pide el número al usuario.
+     * @return int entero. Devuelve el número introducido por el usuario.
+     */
+    public static float leerDecimal(String msg){
+        
+        float real = 0;
+        boolean validador = false ;
+        Scanner entrada = new Scanner(System.in) ;
+        
+        do {
+            System.out.println(msg);
+            String mensaje = entrada.nextLine() ;
+            try 
+            {
+                real = Float.parseFloat(mensaje) ;
+                validador = true ;
+            }
+            catch (InputMismatchException e) {
+                
+                System.out.println("No has introducido un número real.");
+            }
+            catch (Exception e) {
+                
+                System.out.println("No has introducido un número real.");
+            }
+        } while (!validador);
+
+     
+        return real ;
+    }
+    
 }
 

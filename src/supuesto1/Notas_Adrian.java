@@ -65,16 +65,20 @@ public class Notas_Adrian{
             this.nombre = nombre;
         }
     
-    public void compruebaRangoNota(float nota) throws ExcepcionRangoNotas{
+    public static boolean compruebaRangoNota(float nota) throws ExcepcionRangoNotas{
+        
+        boolean valido = false ;
         
         if (nota >= 0 & nota <= 10) // Si la nota es mayor o igual que cero y menor o igual que 10...
         {
-            this.nota = nota ; // ...es válido y se guardará.
+            valido = true ; // ...es válido.
         }
         else // Si no se cumple condición...
         {
             throw new ExcepcionRangoNotas("La nota debe estar comprendida entre 0 y 10.") ; // ...saltará la excepción.
         }
+        
+        return valido ;
     }
     
     public String equivalenciaNota(float n){
@@ -121,16 +125,38 @@ public class Notas_Adrian{
         
         String nombre ;
         float nota ;
-        boolean validador = false ;
+        boolean valido = false ;
         
         // Entradas y salidas de datos
         
-        System.out.println("Bienvenido/a al calificador.\n");
+        System.out.println("Bienvenido/a al calificador.\n"); // Mensaje de bievenida.
         
-        nombre = Utilidades.leerString("Introduce tu nombre, por favor: ") ;
-        nota = Utilidades.leerDecimal("Ahora introduce tu nota: ") ;
+        nombre = Utilidades.leerString("Introduce tu nombre, por favor: ") ; // Pide el nombre.
+        nota = Utilidades.leerDecimal("Ahora introduce tu nota: ") ; // Pide la nota.
         
+        try 
+        {
+            valido = Notas_Adrian.compruebaRangoNota(nota) ; // Comprueba que la nota introducida esté entre 0 y 10...
+        }
+        catch (ExcepcionRangoNotas e){
+            System.out.println(e.getMessage()); // ...de no ser así salta la excepción.
+        }
+        catch (Exception e) {
+            System.out.println("La nota introducida no es válida.") ;
+        }
         
+        if (valido == true) // Si la nota es válida...
+        {
+            Notas_Adrian calificacion = new Notas_Adrian(nombre, nota) ; // ...creará el objeto...
+            
+            System.out.println(calificacion.toString()); // ...y mostrará los datos por pantalla.
+            
+            System.out.println("El programa ha finalizado."); // Mensaje de despedida.
+        }
+        else
+        {
+            System.out.println("El programa ha finalizado."); // Mensaje de despedida.
+        }
     }
     
     

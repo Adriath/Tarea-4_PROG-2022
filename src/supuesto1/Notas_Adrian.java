@@ -27,9 +27,15 @@ public class Notas_Adrian{
     
     public enum Notas {Suspenso, Aprobado, Bien, Notable, Sobresaliente, Matrícula} ;
     
-    // CONSTRUCTOR
+    // CONSTRUCTORES
     
-    public Notas_Adrian(String nombre, float nota){
+    public Notas_Adrian(){ // Constructor por defecto
+     
+        nota = 0 ;
+        nombre = "" ;
+    }
+    
+    public Notas_Adrian(String nombre, float nota){ // Constructor con nombre y nota
      
         this.nota = nota ;
         this.nombre = nombre ;
@@ -103,11 +109,38 @@ public class Notas_Adrian{
         return nota ;
     }
     
+    @Override
+    public String toString(){
+        
+        return nombre + ", tu nota es: " + "\n\t" + equivalenciaNota(nota) ;
+    }
+    
     public static void main(String[] args) {
+        
+        boolean validador = false ;
         
         System.out.println("Bievenido/a al calificador.\n");
         
+        float nota = Utilidades.leerDecimal("Dame la nota: ") ;
+        String nombre = Utilidades.leerString("?Cómo te llamas?") ;
         
+        Notas_Adrian calificacion = new Notas_Adrian(nombre, nota) ;
+        
+        do 
+        {            
+            try 
+            {
+                calificacion.compruebaRangoNota(nota);
+            } 
+            catch (ExcepcionRangoNotas e) {
+                System.out.println(e.getMessage());
+            }
+
+            validador = true ;
+            
+        } while (!validador);
+        
+        System.out.println(calificacion.toString());
     }
     
     

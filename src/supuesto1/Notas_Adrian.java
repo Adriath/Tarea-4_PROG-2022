@@ -163,7 +163,7 @@ public class Notas_Adrian{
     @Override
     public String toString(){
         
-        return nombre + ", tu nota es: " + "\n\t" + equivalenciaNota(nota) ;
+        return "\t" + nombre + ", tu nota es: " + "\n\t" + " ---- " + equivalenciaNota(nota) + " ---- " ;
     }
     
     // -----------------------------------------
@@ -183,7 +183,7 @@ public class Notas_Adrian{
         System.out.println("Bienvenido/a al calificador.\n"); // Mensaje de bievenida.
         
         nombre = Utilidades.leerString("Introduce tu nombre, por favor: ") ; // Pide el nombre.
-        nota = Utilidades.leerDecimal("Ahora introduce tu nota: ") ; // Pide la nota.
+        nota = Utilidades.leerDecimal("\nAhora introduce tu nota: ") ; // Pide la nota.
         
         try 
         {
@@ -193,7 +193,7 @@ public class Notas_Adrian{
             System.out.println(e.getMessage()); // ...de no ser así salta la excepción.
         }
         catch (Exception e) {
-            System.out.println("La nota introducida no es válida.") ;
+            System.out.println("\nLa nota introducida no es válida.\n") ;
         }
         
         if (valido == true) // Si la nota es válida...
@@ -202,11 +202,11 @@ public class Notas_Adrian{
             
             System.out.println(calificacion.toString()); // ...y mostrará los datos por pantalla.
             
-            System.out.println("El programa ha finalizado."); // Mensaje de despedida.
+            System.out.println("\nEl programa ha finalizado.\n"); // Mensaje de despedida.
         }
         else // Si no es válida finalizará el programa sin aportar ningún dato. No se vuelve a pedir la nota.
         {
-            System.out.println("El programa ha finalizado."); // Mensaje de despedida.
+            System.out.println("\nEl programa ha finalizado.\n"); // Mensaje de despedida.
         }
     }
     

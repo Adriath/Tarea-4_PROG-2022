@@ -160,10 +160,11 @@ public class Notas_Adrian{
     }
     
     /**
-     * Método que valida la respuesta del usuario respecto a si continuar la ejecución.
+     * Método que valida la respuesta del usuario respecto a si continuar la 
+     * ejecución.
      * 
      * @param msj String. Mensaje introducido por el usuario.
-     * @return boolean valido. Devuelve si es válido (true) o no (false).
+     * @return boolean valido. Devuelve si es válida la respuesta (true) o no (false).
      */
     public static boolean compruebaDecisionUsuario(String msj)throws ExcepcionDecisionUsuario{
         String si = "s" ;
@@ -172,14 +173,35 @@ public class Notas_Adrian{
         
         if (msj.equalsIgnoreCase(si) ^ msj.equalsIgnoreCase(no)) // Si el mensaje introducido es igual a "s" o "n" será válido...
         {
-            valido = true ;
+           valido = true ;
         }
-        else // ...de lo contrario no.
+        else // ...de lo contrario no y saltará la excepción.
         {
             throw new ExcepcionDecisionUsuario("Tienes que decir sí \"s/S\" o no \"n/N\".") ;
         }
         
         return valido ;
+    }
+    
+    /**
+     * Método que extraerá la decisión del usuario, previamente validada,
+     * @param decision
+     * @return 
+     */
+    public static boolean distingueEntreSiYNo(String decision){
+        
+        boolean respuesta = false ;
+        
+        if (decision.equalsIgnoreCase("s")) // Si la decisión del usuario/a es "s/S"...
+        {
+            respuesta = false ; // ...respuesta será false.
+        }
+        else if (decision.equalsIgnoreCase("n")) // Si la decisión del usuario/a es "n/N"...
+        {
+            respuesta = true ; // ...la respuesta será true.
+        }
+        
+        return respuesta ;
     }
     
     /**
@@ -249,12 +271,12 @@ public class Notas_Adrian{
 
                 do // Ejecuta hasta que la decisión del usuario/a sea válida.
                 {                    
-                    decision = Utilidades.leerString("\n?Quieres introducir otra nota? (s/n)\n") ; // Pregunta al usuario/a si quiere continuar.
+                    decision = Utilidades.leerString("\nIndica si vas a querer introducir otra nota: (s/n)\n") ; // Pregunta al usuario/a si quiere continuar.
                     
                     try // Comprueba si es correcta la decisión...
                     {
-                        compruebaDecisionUsuario(decision) ; 
-                        validador = true ;
+                        validador = compruebaDecisionUsuario(decision) ;
+                        
                     } 
                     catch (ExcepcionDecisionUsuario e){ //...y si no lo es salta la excepción.
                         
@@ -264,15 +286,16 @@ public class Notas_Adrian{
                         
                         System.out.println("Tienes que decir sí \"s/S\" o no \"n/N\".") ;
                     }
-                
                     
                 } while (!validador);
+                
             }
             
-        } while (!validador);
+            validador = distingueEntreSiYNo(decision) ; // Dependiendo de la decisión que se haya tomado (sí o no) se seguirá o no la ejecución.            
+            
+        }  while (!validador);
+            
+            System.out.println("\nEl programa ha finalizado.\n") ;
         
-        System.out.println("\nEl programa ha finalizado.\n"); // Mensaje de despedida.
+        }
     }
-    
-    
-}

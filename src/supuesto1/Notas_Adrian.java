@@ -180,20 +180,22 @@ public class Notas_Adrian{
         
         // Entradas y salidas de datos
         
-        System.out.println("Bienvenido/a al calificador.\n"); // Mensaje de bievenida.
+        System.out.println("Bienvenido/a al calificador.\n"); // Mensaje de bienvenida.
         
         nombre = Utilidades.leerString("Introduce tu nombre, por favor: ") ; // Pide el nombre.
-        nota = Utilidades.leerDecimal("\nAhora introduce tu nota: ") ; // Pide la nota.
+        nota = Utilidades.leerDecimal("\nIntroduce tu nota: ") ; // Pide la nota.
         
         try 
         {
             valido = Notas_Adrian.compruebaRangoNota(nota) ; // Comprueba que la nota introducida esté entre 0 y 10...
         }
         catch (ExcepcionRangoNotas e){
+            
             System.out.println(e.getMessage()); // ...de no ser así salta la excepción.
         }
         catch (Exception e) {
-            System.out.println("\nLa nota introducida no es válida.\n") ;
+            
+            System.out.println("\nLa nota introducida no es válida. Debe estar comprendida entre 0 y 10.\n") ;
         }
         
         if (valido == true) // Si la nota es válida...

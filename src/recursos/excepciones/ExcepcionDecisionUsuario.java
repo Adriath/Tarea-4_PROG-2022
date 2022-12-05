@@ -5,19 +5,19 @@
 package recursos.excepciones;
 
 /**
- * Excepcion personalizada que sirve para controlar que la nota del usuario 
- * esté entre los valores 0 y 10 (ambos inclusive).
+ * Excepción personalizada que sirve para controlar si la decisión introducida 
+ * por el/la usuario/a es válida.
  * 
  * @author Adrián Arjona
  * @version 1.0 Diciembre 2022
  */
-public class ExcepcionRangoNotas extends Exception {
+public class ExcepcionDecisionUsuario extends Exception {
     
-     /* Francisco Adrián Arjona Bravo
+    /* Francisco Adrián Arjona Bravo
         UNIDAD 4: uso de estructuras de control.
     */
     
-    public ExcepcionRangoNotas(String msg){
+    public ExcepcionDecisionUsuario(String msg){
         
         super(msg) ;
     }

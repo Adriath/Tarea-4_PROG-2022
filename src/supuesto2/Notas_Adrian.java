@@ -2,6 +2,8 @@
 package supuesto2;
 
 import java.lang.ref.SoftReference;
+import javax.swing.JOptionPane;
+import recursos.excepciones.ExcepcionDecisionUsuario;
 import recursos.excepciones.ExcepcionRangoNotas;
 import recursos.utilidades.Utilidades;
 
@@ -158,6 +160,29 @@ public class Notas_Adrian{
     }
     
     /**
+     * Método que valida la respuesta del usuario respecto a si continuar la ejecución.
+     * 
+     * @param msj String. Mensaje introducido por el usuario.
+     * @return boolean valido. Devuelve si es válido (true) o no (false).
+     */
+    public static boolean compruebaDecisionUsuario(String msj)throws ExcepcionDecisionUsuario{
+        String si = "s" ;
+        String no = "n" ;
+        boolean valido = false ;
+        
+        if (msj.equalsIgnoreCase(si) ^ msj.equalsIgnoreCase(no)) // Si el mensaje introducido es igual a "s" o "n" será válido...
+        {
+            valido = true ;
+        }
+        else // ...de lo contrario no.
+        {
+            throw new ExcepcionDecisionUsuario("Tienes que decir sí \"s/S\" o no \"n/N\".") ;
+        }
+        
+        return valido ;
+    }
+    
+    /**
      * Método toString de la clase Notas_Adrian.
      * 
      * @return String. Llama al alumno/a por su nombre y le dice la nota traducida a cadena de caracteres.
@@ -177,39 +202,76 @@ public class Notas_Adrian{
         // Declaración de variables
         
         String nombre ;
-        float nota ;
-        boolean valido = false ;
+        float nota = 0 ;
+        
+        String decision = "" ;
+        
+        boolean valido = false ; // Se utiliza para saber si la nota es válida (entre 0 y 10).
+        boolean validador = false ; // Se utiliza para salir del bucle.
         
         // Entradas y salidas de datos
         
-        System.out.println("Bienvenido/a al calificador.\n"); // Mensaje de bievenida.
+        System.out.println("Bienvenido/a al calificador.\n"); // Mensaje de bienvenida.
         
-        nombre = Utilidades.leerString("Introduce tu nombre, por favor: ") ; // Pide el nombre.
-        nota = Utilidades.leerDecimal("\nAhora introduce tu nota: ") ; // Pide la nota.
-        
-        try 
-        {
-            valido = Notas_Adrian.compruebaRangoNota(nota) ; // Comprueba que la nota introducida esté entre 0 y 10...
-        }
-        catch (ExcepcionRangoNotas e){
-            System.out.println(e.getMessage()); // ...de no ser así salta la excepción.
-        }
-        catch (Exception e) {
-            System.out.println("\nLa nota introducida no es válida.\n") ;
-        }
-        
-        if (valido == true) // Si la nota es válida...
-        {
-            Notas_Adrian calificacion = new Notas_Adrian(nombre, nota) ; // ...creará el objeto...
+        do // Ejecutará hasta que el/la usuario/a quiera finalizar el programa.
+        {            
+            nombre = Utilidades.leerString("Introduce tu nombre, por favor: ") ; // Pide el nombre.
+
+            do // Ejecutará hasta la nota introducida sea correcta.
+            {                
+                try 
+                {
+                    nota = Utilidades.leerDecimal("\nIntroduce tu nota: ") ; // Pide la nota.
+                    
+                    valido = Notas_Adrian.compruebaRangoNota(nota) ; // Comprueba que la nota introducida esté entre 0 y 10...
+                    validador = true ;
+                }
+                catch (ExcepcionRangoNotas e){
+
+                    System.out.println(e.getMessage()); // ...de no ser así salta la excepción.
+                }
+                catch (Exception e) {
+
+                    System.out.println("\nLa nota introducida no es válida. Debe estar comprendida entre 0 y 10.\n") ;
+                }
+                
+            } while (!validador);
             
-            System.out.println(calificacion.toString()); // ...y mostrará los datos por pantalla.
             
-            System.out.println("\nEl programa ha finalizado.\n"); // Mensaje de despedida.
-        }
-        else // Si no es válida finalizará el programa sin aportar ningún dato. No se vuelve a pedir la nota.
-        {
-            System.out.println("\nEl programa ha finalizado.\n"); // Mensaje de despedida.
-        }
+            validador = false ; // Reiniciamos el validador para continuar usándolo en el bucle.
+            
+
+            if (valido == true) // Si la nota es válida...
+            {
+                Notas_Adrian calificacion = new Notas_Adrian(nombre, nota) ; // ...creará el objeto...
+
+                System.out.println(calificacion.toString()); // ...y mostrará los datos por pantalla.
+
+                do // Ejecuta hasta que la decisión del usuario/a sea válida.
+                {                    
+                    decision = Utilidades.leerString("\n?Quieres introducir otra nota? (s/n)\n") ; // Pregunta al usuario/a si quiere continuar.
+                    
+                    try // Comprueba si es correcta la decisión...
+                    {
+                        compruebaDecisionUsuario(decision) ; 
+                        validador = true ;
+                    } 
+                    catch (ExcepcionDecisionUsuario e){ //...y si no lo es salta la excepción.
+                        
+                        System.out.println(e.getMessage()); 
+                    }
+                    catch (Exception e) {
+                        
+                        System.out.println("Tienes que decir sí \"s/S\" o no \"n/N\".") ;
+                    }
+                
+                    
+                } while (!validador);
+            }
+            
+        } while (!validador);
+        
+        System.out.println("\nEl programa ha finalizado.\n"); // Mensaje de despedida.
     }
     
     

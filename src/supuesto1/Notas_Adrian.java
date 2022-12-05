@@ -29,12 +29,21 @@ public class Notas_Adrian{
     
     // CONSTRUCTORES
     
+    /**
+     * Constructor por defecto de la clase Notas_Adrian.
+     */
     public Notas_Adrian(){ // Constructor por defecto
      
         nota = 0 ;
         nombre = "" ;
     }
     
+    /**
+     * Constructor con parámetros de la clase Notas_Adrian.
+     * 
+     * @param nombre String. Nombre del alumno/a.
+     * @param nota float. Nota del alumno/a.
+     */
     public Notas_Adrian(String nombre, float nota){ // Constructor con nombre y nota
      
         this.nota = nota ;
@@ -47,24 +56,51 @@ public class Notas_Adrian{
     
             // NOTA
     
-        public float getNota() {
+        /**
+         * Método que muestra la nota.
+         * 
+         * @return float nota. Devuelve la nota del alumno/a.
+         */
+         public float getNota() {
             return nota;
         }
 
+        /**
+         * Método que modifica la nota.
+         * 
+         * @param nota float. La nota del alumno/a.
+         */
         public void setNota(float nota) {
             this.nota = nota;
         }
 
             // NOMBRE
     
+        /**
+         * Método que muestra el nombre.
+         * 
+         * @return String nombre. Devuelve el nombre del alumno/a.
+         */
         public String getNombre() {
             return nombre;
         }
 
+        /**
+         * Método que modifica el nombre.
+         * 
+         * @param nombre String. El nombre del alumno/a.
+         */
         public void setNombre(String nombre) {
             this.nombre = nombre;
         }
     
+    /**
+     * Método que comprueba si la nota introducida es válida.
+     * 
+     * @param nota float. Nota del alumno/a.
+     * @return boolean valido. Devuelve si es válido (true) o no (false).
+     * @throws ExcepcionRangoNotas. La nota debe estar comprendida entre 0 y 10 (ambos inclusive).
+     */
     public static boolean compruebaRangoNota(float nota) throws ExcepcionRangoNotas{
         
         boolean valido = false ;
@@ -81,6 +117,12 @@ public class Notas_Adrian{
         return valido ;
     }
     
+    /**
+     * Método que traduce la nota introducida por su equivalente (aprobado, suspendo, etc.).
+     * 
+     * @param n float. Nota del alumno/a.
+     * @return String nota. Devuelve la nota traducida a su equivalencia en cadena de caracteres.
+     */
     public String equivalenciaNota(float n){
         
         String nota = "";
@@ -113,11 +155,20 @@ public class Notas_Adrian{
         return nota ;
     }
     
+    /**
+     * Método toString de la clase Notas_Adrian.
+     * 
+     * @return String. Llama al alumno/a por su nombre y le dice la nota traducida a cadena de caracteres.
+     */
     @Override
     public String toString(){
         
         return nombre + ", tu nota es: " + "\n\t" + equivalenciaNota(nota) ;
     }
+    
+    // -----------------------------------------
+    // -------------- MÉTODO MAIN --------------
+    // -----------------------------------------
     
     public static void main(String[] args) {
         
@@ -153,7 +204,7 @@ public class Notas_Adrian{
             
             System.out.println("El programa ha finalizado."); // Mensaje de despedida.
         }
-        else
+        else // Si no es válida finalizará el programa sin aportar ningún dato. No se vuelve a pedir la nota.
         {
             System.out.println("El programa ha finalizado."); // Mensaje de despedida.
         }

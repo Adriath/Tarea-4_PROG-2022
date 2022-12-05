@@ -123,27 +123,14 @@ public class Notas_Adrian{
         float nota ;
         boolean validador = false ;
         
-        // Creación del objeto
-        
-        Notas_Adrian calificacion = new Notas_Adrian() ;
-        
         // Entradas y salidas de datos
         
-        System.out.println("Bievenido/a al calificador.\n");
+        System.out.println("Bienvenido/a al calificador.\n");
         
-        nota = Utilidades.leerDecimal("Introduce la nota: ") ;
-        try 
-        {
-            calificacion.compruebaRangoNota(nota);
-        } 
-        catch (ExcepcionRangoNotas e){
-            System.out.println(e.getMessage());
-        }
-        catch (Exception e) {
-            System.out.println("Introduce una nota válida dentro entre 0 y 10, por favor");
-        }
+        nombre = Utilidades.leerString("Introduce tu nombre, por favor: ") ;
+        nota = Utilidades.leerDecimal("Ahora introduce tu nota: ") ;
         
-        System.out.println(calificacion.toString());
+        
     }
     
     

@@ -55,18 +55,18 @@ public class Frases_Adrian {
             
         // CHISTES
 
-            private static String chiste1 = "\nJaimito en clase:\n "
-                    + "\t-\"Hoy vamos a dar los poemas. A ver, Juanito, hazme un pareado\".\n "
-                    + "\t-\"Fui a recoger almejas y me llegaba el agua por las orejas\".\n"
-                    + "\t-\"Muy bien, Juanito. Ahora tú, Jaimito\".\n"
-                    + "\t-\"Fui a recoger mejillones y me llegaba el agua por las rodillas\".\n"
-                    + "\t-\"Jaimito, eso no rima\".\n"
-                    + "\t-\"Pues espérate a que suba la marea\"\n." ;
+            private static String chiste1 = "\n\tJaimito en clase:\n\n "
+                    + "\t- Hoy vamos a dar los poemas. A ver, Juanito, hazme un pareado.\n "
+                    + "\t- Fui a recoger almejas y me llegaba el agua por las orejas.\n"
+                    + "\t- Muy bien, Juanito. Ahora tú, Jaimito.\n"
+                    + "\t- Fui a recoger mejillones y me llegaba el agua por las rodillas.\n"
+                    + "\t- Jaimito, eso no rima.\n"
+                    + "\t- Pues espérate a que suba la marea.\n." ;
 
             private static String chiste2 = "\n- Oye, ?Cuál es tu plato favorito?\n"
                     + "- Pues el hondo, porque cabe más comida.\n" ;
 
-            private static String chiste3 = "\n- Te gusta el rock progresivo?\n"
+            private static String chiste3 = "\n- ?Te gusta el rock progresivo?\n"
                 + "- Cada vez más." ;      
 
             
@@ -302,7 +302,7 @@ public class Frases_Adrian {
             
         } while (validador);
         
-        System.out.println("\n-- HAS SALIDO DEL PROGRAMA -- ?Hasta pronto!\n");
+        System.out.println("\n-- HAS SALIDO DEL PROGRAMA -- \n\t?Hasta pronto!\n");
         
     }
 }

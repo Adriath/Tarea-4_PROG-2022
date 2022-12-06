@@ -39,6 +39,7 @@ public class Frases_Adrian {
                     + "viaje en el que debes mantenerte en movimiento y perseverar "
                     + "en tus metas y sueños.\n" ;
 
+            
         // FRASES PESIMISTAS
 
             private static String frasePesimista1 = "\nNunca lograré lo que quiero en la vida.\n" ;
@@ -47,6 +48,7 @@ public class Frases_Adrian {
 
             private static String frasePesimista3 = "\nSi algo malo puede pasar, pasará.\n" ;
 
+            
         // CHISTES
 
             private static String chiste1 = "\nJaimito en clase:\n "
@@ -63,6 +65,7 @@ public class Frases_Adrian {
             private static String chiste3 = "\n- Te gusta el rock progresivo?\n"
                 + "- Cada vez más." ;      
 
+            
         // REFRANES
 
             private static String refran1 = "\nMás vale pájaro en mano que ciento volando.\n" ;
@@ -72,8 +75,13 @@ public class Frases_Adrian {
             private static String refran3 = "\nMás vale prevenir que curar\n" ;
         
     
+            
     // ------------- MÉTODOS ---------------
+            
 
+    /**
+     * Método que muestra el menú.
+     */
     public static void mostrarMenu(){
         
         System.out.println("Elige una de las siguientes opciones:");
@@ -86,6 +94,11 @@ public class Frases_Adrian {
         System.out.println("5. Salir.");
     }
     
+    /**
+     * Método que calcula un número aleatorio entre 1 y 3.
+     * 
+     * @return int numero. Devuelve 1, 2 ó 3.
+     */
     public static int numeroAleatorio(){
         
         int numero = 0 ;
@@ -96,6 +109,11 @@ public class Frases_Adrian {
         return numero ;
     }
     
+    /**
+     * Método que elige entre una de las tres frases motivacionales aleatoriamente.
+     * 
+     * @return String frase. Devuelve una de las tres frases motivacionales.
+     */
     public static String generarFraseMotivacional(){
         
         int numero = numeroAleatorio() ;
@@ -109,16 +127,98 @@ public class Frases_Adrian {
                 
             case 2:
                 frase = fraseMotivacional2 ;
+                break;
                 
             case 3:
                 frase = fraseMotivacional3 ;
+                break;
         }
         
         return frase ;
     }
     
-    public static void main(String[] args) {
-        System.out.println(numeroAleatorio());
+    /**
+     * Método que elige entre una de las tres frases pesimistas aleatoriamente.
+     * 
+     * @return String frase. Devuelve una de las tres frases pesimistas.
+     */
+    public static String generarFrasePesimista(){
+        
+        int numero = numeroAleatorio() ;
+        String frase = "";
+        
+        switch (numero)
+        {
+            case 1:
+                frase = frasePesimista1 ;
+                break;
+                
+            case 2:
+                frase = frasePesimista2 ;
+                break;
+                
+            case 3:
+                frase = frasePesimista3 ;
+                break;
+        }
+        
+        return frase ;
+    }
+    
+    /**
+     * Método que elige entre uno de las tres chiste aleatoriamente.
+     * 
+     * @return String chiste. Devuelve uno de las tres chistes.
+     */
+    public static String generarChiste(){
+        
+        int numero = numeroAleatorio() ;
+        String chiste = "";
+        
+        switch (numero)
+        {
+            case 1:
+                chiste = chiste1 ;
+                break;
+                
+            case 2:
+                chiste = chiste2 ;
+                break;
+                
+            case 3:
+                chiste = chiste3 ;
+                break;
+        }
+        
+        return chiste ;
+    }
+    
+    /**
+     * Método que elige entre uno de las tres refranes aleatoriamente.
+     * 
+     * @return String refran. Devuelve uno de las tres refranes.
+     */
+    public static String generarRefran(){
+        
+        int numero = numeroAleatorio() ;
+        String refran = "";
+        
+        switch (numero)
+        {
+            case 1:
+                refran = refran1 ;
+                break;
+                
+            case 2:
+                refran = refran2 ;
+                break;
+                
+            case 3:
+                refran = refran3 ;
+                break;
+        }
+        
+        return refran ;
     }
         
 }

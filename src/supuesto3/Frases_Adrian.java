@@ -22,7 +22,7 @@ import recursos.utilidades.Utilidades;
  */
 public class Frases_Adrian {
     
-     /* Francisco Adrián Arjona Bravo
+    /* Francisco Adrián Arjona Bravo
         UNIDAD 4: uso de estructuras de control.
     */
     
@@ -300,7 +300,7 @@ public class Frases_Adrian {
             
             validador = Utilidades.distingueEntreSiYNo(decision) ; // Dependiendo de la decisión que se haya tomado (sí o no) se seguirá o no la ejecución.
             
-        } while (validador);
+        } while (validador); // Saldrá si se ha elegido sí (s/S).
         
         System.out.println("\n-- HAS SALIDO DEL PROGRAMA -- \n\t?Hasta pronto!\n");
         

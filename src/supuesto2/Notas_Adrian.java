@@ -1,8 +1,6 @@
 
 package supuesto2;
 
-import java.lang.ref.SoftReference;
-import javax.swing.JOptionPane;
 import recursos.excepciones.ExcepcionDecisionUsuario;
 import recursos.excepciones.ExcepcionRangoNotas;
 import recursos.utilidades.Utilidades;
@@ -24,14 +22,14 @@ public class Notas_Adrian{
         UNIDAD 4: uso de estructuras de control.
     */
     
-    // DECLARACIÓN DE VARIABLES
+    // --------- DECLARACIÓN DE VARIABLES ------------
     
     private float nota ;
     private String nombre ;
     
     public enum Notas {Suspenso, Aprobado, Bien, Notable, Sobresaliente, Matrícula} ;
     
-    // CONSTRUCTORES
+    // ------------ CONSTRUCTORES -----------------
     
     /**
      * Constructor por defecto de la clase Notas_Adrian.
@@ -54,7 +52,7 @@ public class Notas_Adrian{
         this.nombre = nombre ;
     }
     
-    // MÉTODOS
+    // -------------- MÉTODOS -------------------
     
         // GETTERS & SETTERS
     
@@ -121,6 +119,7 @@ public class Notas_Adrian{
         return valido ;
     }
     
+    
     /**
      * Método que traduce la nota introducida por su equivalente (aprobado, suspendo, etc.).
      * 
@@ -159,6 +158,8 @@ public class Notas_Adrian{
         return nota ;
     }
     
+    
+    
     /**
      * Método que valida la respuesta del usuario respecto a si continuar la 
      * ejecución.
@@ -183,6 +184,8 @@ public class Notas_Adrian{
         return valido ;
     }
     
+    
+    
     /**
      * Método que extraerá la decisión del usuario, previamente validada,
      * @param decision
@@ -204,6 +207,8 @@ public class Notas_Adrian{
         return respuesta ;
     }
     
+    
+    
     /**
      * Método toString de la clase Notas_Adrian.
      * 
@@ -215,9 +220,13 @@ public class Notas_Adrian{
         return "\t" + nombre + ", tu nota es: " + "\n\t" + " ---- " + equivalenciaNota(nota) + " ---- " ;
     }
     
+    
+    
+    
     // -----------------------------------------
     // -------------- MÉTODO MAIN --------------
     // -----------------------------------------
+    
     
     public static void main(String[] args) {
         
@@ -235,11 +244,12 @@ public class Notas_Adrian{
         
         System.out.println("Bienvenido/a al calificador.\n"); // Mensaje de bienvenida.
         
-        do // Ejecutará hasta que el/la usuario/a quiera finalizar el programa.
+        nombre = Utilidades.leerString("Introduce tu nombre, por favor: ") ; // Pide el nombre.
+        
+        do // Ejecutará hasta que el/la usuario/a quiera finalizar el programa. Para ello tendrá que decir sí (s/S) o no (n/N).
         {            
-            nombre = Utilidades.leerString("Introduce tu nombre, por favor: ") ; // Pide el nombre.
-
-            do // Ejecutará hasta la nota introducida sea correcta.
+            
+            do // Ejecutará hasta que la nota introducida sea correcta.
             {                
                 try 
                 {
@@ -261,14 +271,15 @@ public class Notas_Adrian{
             
             
             validador = false ; // Reiniciamos el validador para continuar usándolo en el bucle.
+
+            // ---------- Creación del objeto y muestra por pantalla --------------
             
+            Notas_Adrian calificacion = new Notas_Adrian(nombre, nota) ; // Creamos el objeto y...
 
-            if (valido == true) // Si la nota es válida...
-            {
-                Notas_Adrian calificacion = new Notas_Adrian(nombre, nota) ; // ...creará el objeto...
-
-                System.out.println(calificacion.toString()); // ...y mostrará los datos por pantalla.
-
+            System.out.println(calificacion.toString()); // ...y mostramos los datos por pantalla.
+            
+            // ----------------------------------------------------------------------
+            
                 do // Ejecuta hasta que la decisión del usuario/a sea válida.
                 {                    
                     decision = Utilidades.leerString("\nIndica si vas a querer introducir otra nota: (s/n)\n") ; // Pregunta al usuario/a si quiere continuar.
@@ -276,7 +287,6 @@ public class Notas_Adrian{
                     try // Comprueba si es correcta la decisión...
                     {
                         validador = compruebaDecisionUsuario(decision) ;
-                        
                     } 
                     catch (ExcepcionDecisionUsuario e){ //...y si no lo es salta la excepción.
                         
@@ -287,15 +297,13 @@ public class Notas_Adrian{
                         System.out.println("Tienes que decir sí \"s/S\" o no \"n/N\".") ;
                     }
                     
-                } while (!validador);
-                
-            }
+                } while (!validador); // Sale cuando la cadena de caracteres es válida (s/S/n/N).
             
             validador = distingueEntreSiYNo(decision) ; // Dependiendo de la decisión que se haya tomado (sí o no) se seguirá o no la ejecución.            
             
-        }  while (!validador);
+        }  while (!validador); // Sale cuando el usuario/a elige no (n/N).
             
-            System.out.println("\nEl programa ha finalizado.\n") ;
+            System.out.println("\nEl programa ha finalizado.\n") ; // Mensaje de despedida.
         
         }
     }

@@ -1,7 +1,6 @@
 
 package supuesto1;
 
-import java.lang.ref.SoftReference;
 import recursos.excepciones.ExcepcionRangoNotas;
 import recursos.utilidades.Utilidades;
 

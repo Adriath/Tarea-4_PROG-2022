@@ -4,6 +4,8 @@
  */
 package supuesto3;
 
+import recursos.utilidades.Utilidades;
+
 /**
  * Realiza un programa llamado Frases_Nombre, que muestre un menú de opciones 
  * que permitan hacer lo siguiente:
@@ -44,7 +46,7 @@ public class Frases_Adrian {
 
             private static String frasePesimista1 = "\nNunca lograré lo que quiero en la vida.\n" ;
 
-            private static String frasePesimista2 = "\nTodo lo que empieza bien, termina mal\n" ;
+            private static String frasePesimista2 = "\nTodo lo que empieza bien, termina mal.\n" ;
 
             private static String frasePesimista3 = "\nSi algo malo puede pasar, pasará.\n" ;
 
@@ -57,10 +59,10 @@ public class Frases_Adrian {
                     + "\t-\"Muy bien, Juanito. Ahora tú, Jaimito\".\n"
                     + "\t-\"Fui a recoger mejillones y me llegaba el agua por las rodillas\".\n"
                     + "\t-\"Jaimito, eso no rima\".\n"
-                    + "\t-\"Pues espérate a que suba la marea\"." ;
+                    + "\t-\"Pues espérate a que suba la marea\"\n." ;
 
             private static String chiste2 = "\n- Oye, ?Cuál es tu plato favorito?\n"
-                    + "- Pues el hondo, porque cabe más comida." ;
+                    + "- Pues el hondo, porque cabe más comida.\n" ;
 
             private static String chiste3 = "\n- Te gusta el rock progresivo?\n"
                 + "- Cada vez más." ;      
@@ -72,7 +74,7 @@ public class Frases_Adrian {
 
             private static String refran2 = "\nA caballo regalado no le mires el diente.\n" ;
 
-            private static String refran3 = "\nMás vale prevenir que curar\n" ;
+            private static String refran3 = "\nMás vale prevenir que curar.\n" ;
         
     
             
@@ -87,11 +89,11 @@ public class Frases_Adrian {
         System.out.println("Elige una de las siguientes opciones:");
         System.out.println("-------------------------------------\n");
         
-        System.out.println("1. Mostrar frase motivacional.");
-        System.out.println("2. MOstrar frase pesimista.");
-        System.out.println("3. Contar un chiste.");
-        System.out.println("4. Decir un refrán.");
-        System.out.println("5. Salir.");
+        System.out.println("1. Mostrar frase motivacional");
+        System.out.println("2. Mostrar frase pesimista");
+        System.out.println("3. Contar un chiste");
+        System.out.println("4. Decir un refrán");
+        System.out.println("5. Salir");
     }
     
     /**
@@ -220,5 +222,58 @@ public class Frases_Adrian {
         
         return refran ;
     }
+    
+    // ----------------------------------------------
+    // --------------  MÉTODO MAIN ------------------
+    // ----------------------------------------------
+    
+    public static void main(String[] args) {
         
+        // Declaración de variables
+        
+        int opcion = 0 ;
+        boolean validador = false ;
+        
+        // Mensaje de bienvenida
+        
+        System.out.println("--------------------------------------------------------");
+        System.out.println("Bienvenido/a al generador de frases, chistes y refranes");
+        System.out.println("--------------------------------------------------------");
+        
+        do 
+        {
+            mostrarMenu();
+            
+            opcion = Utilidades.leerEntero("\nIntroduce una opción: ") ;
+            
+            switch (opcion)
+            {
+                case 1:
+                    System.out.println(generarFraseMotivacional());
+                    break;
+                    
+                case 2:
+                    System.out.println(generarFrasePesimista());
+                    break;
+                    
+                case 3:
+                    System.out.println(generarChiste());
+                    break;
+                    
+                case 4:
+                    System.out.println(generarRefran());
+                    break;
+                    
+                case 5:
+                    validador = true ;
+                    
+                default:
+                    System.out.println("\nLa opción tiene que estar comprendida entre 1 y 5.\n");
+            }
+            
+        } while (!validador);
+        
+        System.out.println("\n-- HAS SALIDO DEL PROGRAMA. -- ?Hasta pronto!\n");
+        
+    }
 }

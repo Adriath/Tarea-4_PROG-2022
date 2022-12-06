@@ -110,7 +110,7 @@ public class Utilidades {
         return real ;
     }
     
-     /**
+    /**
      * Método que valida la respuesta del usuario respecto a si continuar la 
      * ejecución.
      * 
@@ -135,8 +135,9 @@ public class Utilidades {
     }
     
     
-     /**
-     * Método que extraerá la decisión del usuario, previamente validada, previamente validada con el método compruebaDecisionUsuario().
+    
+    /**
+     * Método que extraerá la decisión del usuario, previamente validada con el método compruebaDecisionUsuario().
      * 
      * @param decision
      * @see compruebaDecisionUsuario()
@@ -157,5 +158,7 @@ public class Utilidades {
         
         return respuesta ;
     }
+    
+    
 }
 

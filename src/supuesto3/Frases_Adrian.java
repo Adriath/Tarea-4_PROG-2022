@@ -4,6 +4,8 @@
  */
 package supuesto3;
 
+import java.time.format.DecimalStyle;
+import recursos.excepciones.ExcepcionDecisionUsuario;
 import recursos.utilidades.Utilidades;
 
 /**
@@ -232,6 +234,7 @@ public class Frases_Adrian {
         // Declaración de variables
         
         int opcion = 0 ;
+        String decision = "" ;
         boolean validador = false ;
         
         // Mensaje de bienvenida
@@ -242,38 +245,64 @@ public class Frases_Adrian {
         
         do 
         {
-            mostrarMenu();
-            
-            opcion = Utilidades.leerEntero("\nIntroduce una opción: ") ;
-            
-            switch (opcion)
-            {
-                case 1:
-                    System.out.println(generarFraseMotivacional());
-                    break;
-                    
-                case 2:
-                    System.out.println(generarFrasePesimista());
-                    break;
-                    
-                case 3:
-                    System.out.println(generarChiste());
-                    break;
-                    
-                case 4:
-                    System.out.println(generarRefran());
-                    break;
-                    
-                case 5:
-                    validador = true ;
-                    
-                default:
-                    System.out.println("\nLa opción tiene que estar comprendida entre 1 y 5.\n");
-            }
-            
-        } while (!validador);
         
-        System.out.println("\n-- HAS SALIDO DEL PROGRAMA. -- ?Hasta pronto!\n");
+            do 
+            {
+                mostrarMenu();
+
+                opcion = Utilidades.leerEntero("\nIntroduce una opción: ") ;
+
+                switch (opcion)
+                {
+                    case 1:
+                        System.out.println(generarFraseMotivacional());
+                        break;
+
+                    case 2:
+                        System.out.println(generarFrasePesimista());
+                        break;
+
+                    case 3:
+                        System.out.println(generarChiste());
+                        break;
+
+                    case 4:
+                        System.out.println(generarRefran());
+                        break;
+
+                    case 5:
+                        validador = true ;
+                        break;
+
+                    default:
+                        System.out.println("\nLa opción tiene que estar comprendida entre 1 y 5.\n");
+                        break;
+                }
+
+            } while (!validador);
+            
+            validador = false ;
+                
+            do // Ejecuta hasta que la decisión del usuario/a sea válida.
+            {                
+                decision = Utilidades.leerString("\nConfirma si quieres salir: (s/n)\n") ; // Pregunta al usuario/a si quiere continuar.
+            
+                try 
+                {
+                    validador = Utilidades.compruebaDecisionUsuario(decision) ; // Comprueba si la decisión es válida...
+                } 
+                catch (ExcepcionDecisionUsuario e) {
+                    
+                    System.out.println(e.getMessage()); // ...y si no lo es capturará la excepción.
+                }
+                
+            } while (!validador); // Sale del bucle si la respuesta es válida.
+            
+            validador = Utilidades.distingueEntreSiYNo(decision) ; // Dependiendo de la decisión que se haya tomado (sí o no) se seguirá o no la ejecución.
+            
+        } while (validador);
+        
+        System.out.println("\n-- HAS SALIDO DEL PROGRAMA -- ?Hasta pronto!\n");
         
     }
 }

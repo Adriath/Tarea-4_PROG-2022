@@ -187,8 +187,10 @@ public class Notas_Adrian{
     
     
     /**
-     * Método que extraerá la decisión del usuario, previamente validada,
+     * Método que extraerá la decisión del usuario, previamente validada con el método compruebaDecisionUsuario().
+     * 
      * @param decision
+     * @see compruebaDecisionUsuario()
      * @return 
      */
     public static boolean distingueEntreSiYNo(String decision){

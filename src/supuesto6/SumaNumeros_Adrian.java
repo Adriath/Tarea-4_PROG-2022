@@ -4,6 +4,8 @@
  */
 package supuesto6;
 
+import recursos.utilidades.Utilidades;
+
 /**
  * SUPUESTO 6
  * 
@@ -23,5 +25,21 @@ public class SumaNumeros_Adrian {
         UNIDAD 4: uso de estructuras de control.
     */
     
+   
     
+    public static void main(String[] args) {
+        
+        int numero = 0;
+        int resultado = 0;
+        
+                
+        while (numero != -1)
+        {
+            numero = Utilidades.leerEntero("Introduce un número: (-1 para terminar)") ;
+            resultado += numero ;
+        }
+        
+        System.out.println("El resultado es: " + (resultado + 1));
+        System.out.println("HAS SALIDO DEL PROGRAMA");
+    }
 }

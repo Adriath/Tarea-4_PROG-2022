@@ -2,55 +2,54 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package supuesto4;
+package supuesto5;
 
 import recursos.excepciones.ExcepcionDecisionUsuario;
 import recursos.utilidades.Utilidades;
 
 /**
- * SUPUESTO 4: USO DE FOR.
+ * SUPUESTO 5: USO DE FOR
  * 
- * Realiza un programa llamado SumaNaturalesConFor_Nombre que:
- *  Solicite al usuario un número entero (al que llamaré n).
- *  Con ese número solicitado se calculará la suma de los n primeros números naturales.
- *  Se realizará con un bucle FOR.
- *  En cada iteración del bucle se debe ir mostrando la suma parcial.
- *  Es decir, si n es 6, se mostrará:
- *  1 3 6 10 15 21 (uno al lado del otro, como se ve en el ejemplo)
- * El programa tiene que tener mensaje de bievenida, despedida y preguntará si 
- * se desea salir o continuar como en ejercicios anteriores.
+ * Realiza un programa llamado Mostrar_AsteriscosConFor_Nombre que solicite 
+ * al usuario un número entero (al que llamaré n).
+ * Con ese número solicitado se mostrarán tantas líneas como valga n.
+ * En cada línea, se mostrarán tantos asteriscos como línea por la que vaya, es 
+ * decir 1 en la línaa 1, 2 en la 2, etc.
  * 
  * @author Adrián Arjona
- * @version 1.0 Diciembre 2022
+ * @version 1.0. Diciembre 2022
  */
-public class SumaNaturalesConFor_Adrian {
+public class Mostrar_AsteriscosConFor_Adrian {
     
     /* Francisco Adrián Arjona Bravo
         UNIDAD 4: uso de estructuras de control.
     */
     
-    
-    // -------------- MÉTODOS -------------------------
+      // -------------- MÉTODOS -------------------------
     
         
     /**
-     * Método que, a través de un bucle for, suma una serie de números y los va mostrando en serie.
-     * Partiendo de 1, va sumando el número consecutivo y va mostrando la suma.
-     
-     * @param n int. Cantidad de números que apareceran por consola.
-     * @return String cadenaNumeros. Devuelve una cadena de números formados a partir de la operación.
+     * Método que, a través de dos bucles for anidados, añade asteriscos y da 
+     * saltos de línea para crear la forma deseada.
+     * 
+     * @param n int. Cantidad de filas y columnas que ocupará el asterisco.
+     * @return String cadenaAsteriscos. Devuelve una cadena de asteriscos creando una forma.
      */
-    public static String sumaNaturalesConFor(int n){
+    public static String muestraAsteriscosConFor(int n){
 
-        int suma = 0;
-        String cadenaNumeros = "" ;
+        String cadenaAsteriscos = "" ;
 
-        for (int i = 1; i < (n+1); i++)
+        for (int i = 1; i < (n+1); i++) // Ejecuta los saltos de línea.
         {
-            System.out.print(cadenaNumeros.valueOf(suma += i) + " ");
+            for (int j = 1; j < (i+1); j++) // Añade asteriscos.
+            {
+                System.out.print(cadenaAsteriscos.concat("*"));
+            }
+            
+            System.out.println("") ;
         }
 
-        return cadenaNumeros ;
+        return cadenaAsteriscos ;
     }
 
     
@@ -68,15 +67,15 @@ public class SumaNaturalesConFor_Adrian {
         
         // Mensaje de bienvenida
 
-        System.out.println("-------------------------------------------------------------------------");
-        System.out.println("Bienvenido/a al creador de series sumando números naturales consecutivos");
-        System.out.println("-------------------------------------------------------------------------\n");
+        System.out.println("----------------------------------------------------");
+        System.out.println("Bienvenido/a al creador de series de con asteriscos");
+        System.out.println("----------------------------------------------------\n");
         
         
         do // Se ejecutará hasta que el/la usuario/a elija salir.
         {
-            n = Utilidades.leerEntero("\n?Cuántos números quieres que aparezcan en la serie?") ; // Se pide la cantidad de números que van a aparecer en la serie.
-            sumaNaturalesConFor(n) ; // Se ejecuta el método que hace la operación y que muestra por pantalla.
+            n = Utilidades.leerEntero("\n?Cuántas líneas de asteriscos quieres?") ; // Se pide la cantidad de asteriscos que van a aparecer.
+            muestraAsteriscosConFor(n) ; // Se ejecuta el método que hace la operación y que muestra por pantalla.
                         
             
             // Comienza la secuencia para preguntar si continúa la ejecución.

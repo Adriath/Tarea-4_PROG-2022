@@ -76,6 +76,7 @@ public class SumaNaturalesConFor_Adrian {
         do // Se ejecutará hasta que el/la usuario/a elija salir.
         {
             n = Utilidades.leerEntero("\n?Cuántos números quieres que aparezcan en la serie?") ; // Se pide la cantidad de números que van a aparecer en la serie.
+            
             sumaNaturalesConFor(n) ; // Se ejecuta el método que hace la operación y que muestra por pantalla.
                         
             

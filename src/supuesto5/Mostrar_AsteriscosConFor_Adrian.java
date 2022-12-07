@@ -75,6 +75,9 @@ public class Mostrar_AsteriscosConFor_Adrian {
         do // Se ejecutará hasta que el/la usuario/a elija salir.
         {
             n = Utilidades.leerEntero("\n?Cuántas líneas de asteriscos quieres?") ; // Se pide la cantidad de asteriscos que van a aparecer.
+            
+            System.out.println(""); // Un pequeño salto de lína para separar la estructura del dato (int n).
+            
             muestraAsteriscosConFor(n) ; // Se ejecuta el método que hace la operación y que muestra por pantalla.
                         
             

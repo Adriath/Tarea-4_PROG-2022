@@ -13,7 +13,7 @@ import recursos.utilidades.Utilidades;
  * @author Adrián Arjona
  * @version 1.0 Diciembre 2022
  */
-public class LanzadorEcuacion {
+public class LanzadorEcuacion{
     
     public static void main(String[] args) {
         

@@ -36,6 +36,9 @@ public class Ecuacion_Adrian {
     // -------------- CONSTRUCTORES -----------------------
     
     
+    /**
+     * Constructor por defecto de la clase Ecuacion_Adrian.
+     */
     public Ecuacion_Adrian() { // Constructor por defecto
         
         a = 0 ;
@@ -43,6 +46,13 @@ public class Ecuacion_Adrian {
         c = 0 ;
     }
     
+    /**
+     * Constructor con parámetros de la clase Ecuacion_Adrian.
+     * 
+     * @param a int. Uno de los valores de la ecuación.
+     * @param b int. Uno de los valores de la ecuación.
+     * @param c int. Uno de los valores de la ecuación.
+     */
     public Ecuacion_Adrian(int a, int b, int c) { // Constructor con parámetros
         
         this.a = a;
@@ -89,6 +99,11 @@ public class Ecuacion_Adrian {
         // MÉTODOS PERSONALIZADOS
         
         
+        /**
+         * Método que calcula el discriminante de la ecuación.
+         * 
+         * @return tipo int. Devuelve el discriminante.
+         */
         public int comprobarDiscriminante(){
             
             int resultado ;
@@ -99,6 +114,13 @@ public class Ecuacion_Adrian {
         }
         
         
+        /**
+         * Método que calcula el resultado la de ecuación de segundo grado 
+         * cuando se suma el discriminante.
+         * 
+         * @return tipo double. Devuelve uno de los resultados de la ecuación.
+         * @throws ExcepcionDiscriminanteNegativo. Excepción para controlar si el discriminante es negativo.
+         */
         public double calcularX1() throws ExcepcionDiscriminanteNegativo{
             
             double resultado ;
@@ -117,6 +139,13 @@ public class Ecuacion_Adrian {
             return resultado ;
         }
         
+        /**
+         * Método que calcula el resultado la de ecuación de segundo grado 
+         * cuando se resta el discriminante.
+         * 
+         * @return tipo double. Devuelve uno de los resultados de la ecuación.
+         * @throws ExcepcionDiscriminanteNegativo. Excepción para controlar si el discriminante es negativo.
+         */
         public double calcularX2() throws ExcepcionDiscriminanteNegativo{
             
             double resultado ;

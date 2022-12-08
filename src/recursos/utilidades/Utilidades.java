@@ -159,6 +159,38 @@ public class Utilidades {
         return respuesta ;
     }
     
+      /**
+     * Método que unifica los métodos compruebaDecisionUsuario() y distingueEntreSiYNo().
+     * Preguntará al usuario/a si quieres salir. Si la respuesta es válida la almacenará y evaluará.
+     * 
+     * @return boolean validador. Devuelve la decision del usuario/a según seá sí o no.
+     * @see compruebaDecisionUsuario()
+     * @see distingueEntreSiYNo()
+     */
+    public static boolean secuenciaSalida(){
+        
+        String decision ;
+        boolean validador = false ;
+        
+        do // Ejecuta hasta que la decisión del usuario/a sea válida.
+            {                
+                decision = Utilidades.leerString("\n?Quieres salir del programa? (s/n)\n") ; // Pregunta al usuario/a si quiere continuar.
+            
+                try 
+                {
+                    validador = Utilidades.compruebaDecisionUsuario(decision) ; // Comprueba si la decisión es válida...
+                } 
+                catch (ExcepcionDecisionUsuario e) {
+                    
+                    System.out.println(e.getMessage()); // ...y si no lo es capturará la excepción.
+                }
+                
+            } while (!validador); // Sale del bucle si la respuesta es válida.
+            
+        validador = Utilidades.distingueEntreSiYNo(decision) ; // Dependiendo de la decisión que se haya tomado (sí o no) se seguirá o no la ejecución.
+        
+        return validador ;
+    }
     
 }
 

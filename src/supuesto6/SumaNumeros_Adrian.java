@@ -29,41 +29,17 @@ public class SumaNumeros_Adrian {
     
     public static void main(String[] args) {
         
-        // DECLARACIÓN DE VARIABLES
+        int numero = 0;
+        int resultado = 0;
         
-        int numero ;
-        int resultado ;
-        
-        boolean validador ;
-        
-        
-        // Mensaje de bienvenida
-
-            System.out.println("--------------------------------------------------------------");
-            System.out.println("Bienvenido/a al programa. Sumamos los números que introduzcas");
-            System.out.println("--------------------------------------------------------------\n");
-            
-            
-        // OPERACIONES
-            
-        do 
-        {   
-            numero = 0 ; // Reinicia el valor para que pueda repetir el bucle.
-            resultado = 0 ; // También reinicio el resultado por el mismo motivo.
-            
-            while (numero != -1) // Saldrá cuando se introduzca un -1.
-            {
-                numero = Utilidades.leerEntero("\nIntroduce un número: (-1 para terminar)") ; // Pide el número.
                 
-                resultado += numero ; // Almacena en resultado los números que se van introduciendo.
-            }
-
-            System.out.println("\nEl resultado es: " + (resultado + 1)); // Muestra por pantalla el resultado.
-
-            validador = Utilidades.secuenciaSalida() ; // Pide al usuario/a si quieres continuar la ejecución.
-            
-        } while (validador); // Sale dependiendo de la decisión del usuario/a.
+        while (numero != -1)
+        {
+            numero = Utilidades.leerEntero("Introduce un número: (-1 para terminar)") ;
+            resultado += numero ;
+        }
         
-        System.out.println("\n-- HAS SALIDO DEL PROGRAMA -- \n\t?Hasta pronto!\n"); // Mensaje de despedida.
+        System.out.println("El resultado es: " + (resultado + 1));
+        System.out.println("HAS SALIDO DEL PROGRAMA");
     }
 }

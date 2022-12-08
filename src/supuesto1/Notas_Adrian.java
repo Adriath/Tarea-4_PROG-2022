@@ -7,8 +7,8 @@ import recursos.utilidades.Utilidades;
 /**
  * SUPUESTO 1: IF ELSE Y EXCEPCIONES
  * Realizar una clase llamada Notas_Nombre (Nombre es vuestro nombre), que 
- * llevará un método main(), en elque se implementará un algoritmo que realizará 
- * lo siguiente utilizando if anidados (if else):
+ * llevará un método main(), en el que se implementará un algoritmo que 
+ * ralizará lo siguiente utilizando if anidados (if else):
  * 
  * @author Adrián Arjona
  * @version 1.0 Diciembre 2022
@@ -38,7 +38,7 @@ public class Notas_Adrian{
     }
     
     /**
-     * Constructor con parámetros de la clase Notas_Adrian.
+     * Constructor con parï¿½metros de la clase Notas_Adrian.
      * 
      * @param nombre String. Nombre del alumno/a.
      * @param nota float. Nota del alumno/a.
@@ -94,7 +94,7 @@ public class Notas_Adrian{
         }
     
     /**
-     * Método que comprueba si la nota introducida es válida.
+     * Método que comprueba si la nota introducida es vï¿½lida.
      * 
      * @param nota float. Nota del alumno/a.
      * @return boolean valido. Devuelve si es válido (true) o no (false).
@@ -190,7 +190,7 @@ public class Notas_Adrian{
         }
         catch (ExcepcionRangoNotas e){
             
-            System.out.println(e.getMessage()); // ...de no ser así salta la excepción.
+            System.out.println(e.getMessage()); // ...de no ser así salta la excepciï¿½n.
         }
         catch (Exception e) {
             
@@ -199,7 +199,7 @@ public class Notas_Adrian{
         
         if (valido == true) // Si la nota es válida...
         {
-            Notas_Adrian calificacion = new Notas_Adrian(nombre, nota) ; // ...creará el objeto...
+            Notas_Adrian calificacion = new Notas_Adrian(nombre, nota) ; // ...creación el objeto...
             
             System.out.println(calificacion.toString()); // ...y mostrará los datos por pantalla.
             

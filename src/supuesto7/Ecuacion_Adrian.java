@@ -88,8 +88,62 @@ public class Ecuacion_Adrian {
         
         // MÉTODOS PERSONALIZADOS
         
-        double calcularX1() throws ExcepcionDiscriminanteNegativo{
+        
+        public int comprobarDiscriminante(){
             
+            int resultado ;
             
+            resultado = (int)Math.pow(this.b, 2) - 4 * this.a * this.c ;
+            
+            return resultado ;
         }
+        
+        
+        public double calcularX1() throws ExcepcionDiscriminanteNegativo{
+            
+            double resultado ;
+            
+            double discriminante = comprobarDiscriminante() ;
+            
+            if (discriminante >= 0)
+            {
+                resultado = (-(this.b) + Math.sqrt(discriminante)) / (2 * this.a) ;
+            }
+            else
+            {
+                throw new ExcepcionDiscriminanteNegativo("\nEL DISCRIMINANTE ES NEGATIVO: NO HAY SOLUCIONES.\n") ;
+            }
+            
+            return resultado ;
+        }
+        
+        public double calcularX2() throws ExcepcionDiscriminanteNegativo{
+            
+            double resultado ;
+            
+            double discriminante = comprobarDiscriminante() ;
+            
+            if (discriminante >= 0)
+            {
+                resultado = (-(this.b) - Math.sqrt(discriminante)) / (2 * this.a) ;
+            }
+            else
+            {
+                throw new ExcepcionDiscriminanteNegativo("\nEL DISCRIMINANTE ES NEGATIVO: NO HAY SOLUCIONES.\n") ;
+            }
+            
+            return resultado ;
+        }
+        
+        
+        // ---------------------------------------------------
+        // ----------------- MÉTODO MAIN ---------------------
+        // ---------------------------------------------------
+        
+        
+        public static void main(String[] args) {
+        
+            
+    }
+        
 }
